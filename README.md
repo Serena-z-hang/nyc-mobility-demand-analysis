@@ -4,9 +4,11 @@ Analyzed **3.5M+ NYC Yellow Taxi trips** using SQL, Python, and Tableau to ident
 
 🔗 **[View Interactive Tableau Dashboard](https://public.tableau.com/views/NYCTaxiDemandOperationsAnalysis/NYCTaxiDemandOperationsAnalysis)**
 
+![NYC Taxi Demand & Operations Dashboard](dashboard.png)
+
 ## Business Question
 
-How do spatial and temporal trip patterns reveal potential operational pressure points for urban mobility platforms?
+**How do spatial and temporal trip patterns reveal potential operational pressure points for urban mobility platforms?**
 
 Rather than only asking when taxis are busiest, this project examines how demand concentration and pickup–dropoff patterns vary by **zone, hour, and day type**.
 
@@ -14,7 +16,7 @@ Rather than only asking when taxis are busiest, this project examines how demand
 
 **NYC Taxi & Limousine Commission (TLC) Yellow Taxi Trip Records — January 2026**
 
-The raw dataset contained approximately **3.72 million completed trip records**.
+The raw dataset contained approximately **3.72 million trip records**.
 
 Key fields used include:
 
@@ -23,6 +25,8 @@ Key fields used include:
 - Trip distance
 - Fare and total amount
 - Taxi zone and borough information
+
+Data source: [NYC TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 ## Data Cleaning
 
@@ -33,8 +37,9 @@ Used SQL and Python to validate trip records and remove observations with:
 - Invalid pickup/dropoff time order
 - Implausible average speeds above 80 mph
 - Trip durations above 4 hours
+- Negative total amounts
 
-The final analytical dataset contained approximately **3.52 million trips**.
+The final analytical dataset contained **3,515,940 trips**.
 
 ## Analysis
 
@@ -77,9 +82,9 @@ Several downtown Manhattan zones showed approximately **3–6× hourly over-inde
 
 Day-level robustness checks showed persistent pickup-heavy patterns:
 
-- **Greenwich Village South:** 30/30 complete late-night windows
-- **Midtown Center:** 30/30 evening windows
-- **Penn Station / Madison Sq West:** 30/31 morning/daytime windows
+- **Greenwich Village South:** pickup-heavy on 30/30 observed days
+- **Midtown Center:** pickup-heavy on 30/30 observed days
+- **Penn Station / Madison Sq West:** pickup-heavy on 30/31 observed days
 
 Greenwich Village South maintained similar imbalance intensity across weekday and weekend nights, while weekend pickup volume was substantially higher.
 
@@ -102,6 +107,12 @@ The interactive dashboard includes:
 - **Python:** Pandas, Matplotlib
 - **Visualization:** Tableau
 - **Environment:** Google Colab
+
+## Repository Files
+
+- [`NYC_Mobility_Demand_Analysis.ipynb`](NYC_Mobility_Demand_Analysis.ipynb) — Full analysis notebook
+- [`mobility_analysis.sql`](mobility_analysis.sql) — Standalone SQL queries
+- [`dashboard.png`](dashboard.png) — Tableau dashboard preview
 
 ## Limitations
 
